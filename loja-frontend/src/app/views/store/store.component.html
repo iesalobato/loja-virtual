@@ -1,0 +1,28 @@
+<div class="container">
+    <div *ngIf="products.length == 0">
+        <div class="no-product-box">
+            <h1>Nenhum produto encontrado... Cadastre o primeiro!</h1>
+        </div>
+        <div class="no-product-box">
+            <button mat-raised-button color="accent" (click)="goToNewProduct()">
+            <i class="material-icons">add_circle_outline</i> Novo Produto
+            </button>
+        </div>
+    </div>
+    <mat-card *ngFor="let product of products" class="card">
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-subtitle>{{product.description}}</mat-card-subtitle>
+        <div class="center" mat-card-image>
+            <img [src]="product.imgSource" width="200" height="150">
+        </div>
+        <mat-card-content class="center">
+            <span>{{product.price | currency: 'BRL'}}</span>
+        </mat-card-content>
+        <mat-card-actions class="center">
+            <button mat-raised-button color="primary">
+                <i class="material-icons">add_shopping_cart</i>
+                Comprar
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

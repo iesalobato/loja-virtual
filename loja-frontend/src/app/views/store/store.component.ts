@@ -1,0 +1,54 @@
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+
+export interface Product{
+  name:string
+  description:string
+  price:number
+  image:string
+  imgSource:SafeUrl
+  id:number
+}
+
+@Component({
+  selector: 'app-store',
+  templateUrl: './store.component.html',
+  styleUrls: ['./store.component.css']
+})
+export class StoreComponent implements OnInit {
+
+  teste = "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"
+
+  products: Product[] = [];
+  
+
+  constructor(
+    private httpClient: HttpClient,
+    private domSanitizer: DomSanitizer,
+    private router: Router
+  ) { }
+
+  ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  goToNewProduct():void{
+    this.router.navigate(['/products/new'])
+  }
+
+  loadProducts(): void{
+    this.httpClient.get(environment.api+'/product').subscribe(
+      (result: any) => {
+        this.products = result
+        this.products.forEach(product => {
+        })
+      }, error => {
+        
+      }
+    )
+  }
+
+}

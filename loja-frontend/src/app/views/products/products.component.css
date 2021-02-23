@@ -1,0 +1,30 @@
+.content{
+    padding:30px;
+}
+
+table{
+    width: 90%;
+}
+
+.no-product-box{
+    width: 100%;
+    height: 40%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    margin: 10px;
+}
+
+i{
+    vertical-align: middle;
+}
