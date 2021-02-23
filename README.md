@@ -30,4 +30,7 @@ Antes de começar, é necessário ter instalado em sua máquina a ferramenta Nod
 3. Fazer uma cópia do arquivo .env.example e renomea-lo para .env
 4. Configurar a conexão com o banco de dados no arquivo .env
 5. adonis migration:run
-6. adonis serve --dev
+6. adonis serve --dev (comando utilizado para iniciar o servidor do projeto)
+
+### Nota
+A imagem dos produtos não está sendo exibida na tela por conta de erro na aplicação.
